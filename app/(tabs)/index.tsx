@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Button,
   Image,
   StyleSheet,
   Text,
@@ -10,15 +9,8 @@ import {
 
 export default function App() {
 
-  // useState variables
+  // useState variable
   const [name, setName] = useState('');
-  const [count, setCount] = useState(0);
-
-  // Dynamic message
-  const message =
-    count === 0
-      ? 'Tap the buttons below!'
-      : `${name || 'User'}, you tapped ${count} times!`;
 
   return (
     <View style={styles.container}>
@@ -30,7 +22,7 @@ export default function App() {
       />
 
       {/* Name */}
-      <Text style={styles.name}>
+      <Text style={styles.title}>
         Lorraine Joy M. Pabaonon
       </Text>
 
@@ -45,47 +37,18 @@ export default function App() {
         and turning creative ideas into digital artworks.
       </Text>
 
-      {/* TextInput */}
+      {/* Text Input */}
       <TextInput
-        placeholder="Enter your name"
+        placeholder="Type your name..."
         value={name}
         onChangeText={setName}
         style={styles.input}
       />
 
-      {/* Conditional Rendering */}
-      {name === '' ? (
-        <Text style={styles.greeting}>
-          Please enter your name
-        </Text>
-      ) : (
-        <Text style={styles.greeting}>
-          Hello, {name}!
-        </Text>
-      )}
-
-      {/* Dynamic Message */}
-      <Text style={styles.message}>
-        {message}
+      {/* Display Typed Name */}
+      <Text style={styles.greeting}>
+        Hello, {name}!
       </Text>
-
-      {/* Counter Buttons */}
-      <View style={styles.buttonContainer}>
-        <Button
-          title="+"
-          onPress={() => setCount(count + 1)}
-        />
-
-        <Button
-          title="-"
-          onPress={() => setCount(count - 1)}
-        />
-
-        <Button
-          title="Reset"
-          onPress={() => setCount(0)}
-        />
-      </View>
 
     </View>
   );
@@ -108,7 +71,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-  name: {
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
   },
@@ -130,24 +93,15 @@ const styles = StyleSheet.create({
   input: {
     width: '90%',
     borderWidth: 1,
-    padding: 10,
+    borderColor: '#999',
     backgroundColor: 'white',
+    padding: 10,
     marginBottom: 15,
   },
 
   greeting: {
-    fontSize: 18,
-    marginBottom: 10,
-  },
-
-  message: {
-    fontSize: 16,
-    marginBottom: 20,
-  },
-
-  buttonContainer: {
-    width: '70%',
-    gap: 10,
+    fontSize: 22,
+    fontWeight: 'bold',
   },
 
 });
